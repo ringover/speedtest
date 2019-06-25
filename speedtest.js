@@ -136,7 +136,7 @@ Speedtest.prototype = {
    * Manually selects one of the test points (multiple points of test)
    */
   setSelectedServer: function(server) {
-    this.checkServerDefinition(server);
+    this._checkServerDefinition(server);
     if (this._state == 3)
       throw "You can't select a server while the test is running";
     this._selectedServer = server;
