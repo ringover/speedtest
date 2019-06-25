@@ -56,12 +56,12 @@ function initServers(){
 	});
 }
 
-var meterBk="#80808040";
+var meterBk=/Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent)?"#EAEAEA":"#80808040";
 var dlColor="#6060AA",
 	ulColor="#309030",
 	pingColor="#AA6060",
 	jitColor="#AA6060";
-var progColor="#80808040";
+var progColor=meterBk;
 
 //CODE FOR GAUGES
 function drawMeter(c,amount,bk,fg,progress,prog){

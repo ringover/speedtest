@@ -10,12 +10,12 @@ function I(i){return document.getElementById(i);}
 var s=new Speedtest(); //create speedtest object
 s.setParameter("telemetry_level","basic"); //enable telemetry
 
-var meterBk="#80808040";
+var meterBk=/Trident.*rv:(\d+\.\d+)/i.test(navigator.userAgent)?"#EAEAEA":"#80808040";
 var dlColor="#6060AA",
 	ulColor="#309030",
 	pingColor="#AA6060",
 	jitColor="#AA6060";
-var progColor="#80808040";
+var progColor=meterBk;
 
 //CODE FOR GAUGES
 function drawMeter(c,amount,bk,fg,progress,prog){
@@ -237,7 +237,7 @@ function initUI(){
 </style>
 <title>HTML5 Speedtest</title>
 </head>
-<body onload="initUI()">
+<body>
 <h1>HTML5 Speedtest</h1>
 <div id="testWrapper">
 	<div id="startStopBtn" onclick="startStop()"></div>
@@ -282,5 +282,6 @@ function initUI(){
 	</div>
 	<a href="https://github.com/adolfintel/speedtest">Source code</a>
 </div>
+<script type="text/javascript">setTimeout(function(){initUI()},100);</script>
 </body>
 </html>
