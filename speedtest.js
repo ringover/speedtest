@@ -307,9 +307,9 @@ Speedtest.prototype = {
       }.bind(this),
       200
     );
-    if (this._state == 2) {
-      if (this._state != 2)
+    if (this._state == 1)
         throw "When using multiple points of test, you must call selectServer before starting the test";
+    if (this._state == 2) {
       this._settings.url_dl =
         this._selectedServer.server + this._selectedServer.dlURL;
       this._settings.url_ul =
